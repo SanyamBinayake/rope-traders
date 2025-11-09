@@ -2,7 +2,7 @@ spring:
   datasource:
     url: jdbc:postgresql://db.jdqvyiqwbyvtgzmuyvdc.supabase.co:5432/postgres
     username: postgres
-    password: ravindra-rope-db
+    password: ${DB_PASSWORD}
   jpa:
     hibernate:
       ddl-auto: update
@@ -11,8 +11,8 @@ spring:
   mail:
     host: smtp.gmail.com
     port: 587
-    username: sanyamtheking@gmail.com     # replace with your Gmail
-    password: wgskfppgplqiqwju          # replace with Gmail App password
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
     properties:
       mail:
         smtp:
