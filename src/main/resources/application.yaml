@@ -2,17 +2,22 @@ spring:
   datasource:
     url: jdbc:postgresql://db.jdqvyiqwbyvtgzmuyvdc.supabase.co:5432/postgres
     username: postgres
-    password: ${DB_PASSWORD}
+    password: ravindra-rope-db
+    driver-class-name: org.postgresql.Driver
+
   jpa:
     hibernate:
       ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
     show-sql: true
 
   mail:
     host: smtp.gmail.com
     port: 587
-    username: ${MAIL_USERNAME}
-    password: ${MAIL_PASSWORD}
+    username: sanyamtheking@gmail.com       # your sender Gmail
+    password: wgskfppgplqiqwju              # Gmail App Password
     properties:
       mail:
         smtp:
@@ -22,3 +27,18 @@ spring:
 
 server:
   port: 8080
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    com.ravindra.ropetraders: DEBUG
+
+# Recipient for enquiries:
+app:
+  admin:
+    email: spbinayake25@gmail.com
+
+supabase:
+  url: https://jdqvyiqwbyvtgzmuyvdc.supabase.co
+  key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpkcXZ5aXF3Ynl2dGd6bXV5dmRjIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2MjY4NTEwMCwiZXhwIjoyMDc4MjYxMTAwfQ.2l9qfbZQSRs5kWW_by35DXv7m4O1rW9eJ9d_4yOYiEU   # your real service key
+  bucket: product-images

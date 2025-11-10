@@ -4,18 +4,18 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 @Table(name = "users")
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor @Builder
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+  @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    private String username;
-    private String email;
-    private String password;
-    private String role; // "ADMIN" or "USER"
+  @Column(unique = true)
+  private String username;
+
+  @Column(unique = true)
+  private String email;
+
+  private String password;    // BCrypt hash
+  private String role;        // e.g. "ADMIN"
 }
